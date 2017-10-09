@@ -21,8 +21,7 @@ public:
     int flashClose;  //闪烁关闭时间
     int positionX;   //文字横坐标
     int positionY;   //文字纵坐标
-    int chHeight;    //文字高度
-    int chWidth;     //文字宽度
+    int chPixelSize;    //文字高度和宽度
     int chSpace;     //文字间间隔
     int lineNum;     //文字所在页面行号
     int lineSpace;   //文字行间隔

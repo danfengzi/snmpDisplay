@@ -19,17 +19,16 @@ CharacterItem::CharacterItem(QString multiString, QWidget *parent) : QLabel(pare
     flashClose = 0;
     lineNum = 1;
     lineSpace = 0;
-    chHeight = 40;
-    chWidth = 40;
+    chPixelSize = 40;
     chSpace = 0;
     foregroundColor = Qt::red;
     backgroundColor = Qt::black;
     openBeforeClose = true;
-    chFont.setPixelSize(chWidth);
+    chFont.setPixelSize(chPixelSize);
     multiStr = multiString;
     multiParsing();
 
-    this->resize(chWidth, chHeight);
+    this->resize(chPixelSize, chPixelSize);
 
     timerInit();
     this->show();

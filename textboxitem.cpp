@@ -70,8 +70,8 @@ void TextBoxItem::paintEvent(QPaintEvent *event)
     for (int i = 0; i < characterItems.size(); ++i)
     {
         characterItems[i]->setGeometry(characterItems[i]->positionX,
-                                       characterItems[i]->positionY - characterItems[i]->chHeight,
-                                       characterItems[i]->chWidth, characterItems[i]->chHeight);
+                                       characterItems[i]->positionY - characterItems[i]->chPixelSize,
+                                       characterItems[i]->chPixelSize, characterItems[i]->chPixelSize);
     }
 
     for (int i = 0; i < movingTextItems.size(); ++i)
@@ -118,15 +118,15 @@ void TextBoxItem::chPositioning()
             {
                 if (i == characterItems[mixedItems[j]->index]->lineNum - 1)
                 {
-                    if (tempLineHeight < characterItems[mixedItems[j]->index]->chHeight)
+                    if (tempLineHeight < characterItems[mixedItems[j]->index]->chPixelSize)
                     {
-                        tempLineHeight = characterItems[mixedItems[j]->index]->chHeight;
+                        tempLineHeight = characterItems[mixedItems[j]->index]->chPixelSize;
                     }
                     if (tempLineSpace < characterItems[mixedItems[j]->index]->lineSpace)
                     {
                         tempLineSpace = characterItems[mixedItems[j]->index]->lineSpace;
                     }
-                    tempLineLenth += characterItems[mixedItems[j]->index]->chWidth
+                    tempLineLenth += characterItems[mixedItems[j]->index]->chPixelSize
                             + characterItems[mixedItems[j]->index]->chSpace;
                 }
             }
@@ -200,17 +200,17 @@ void TextBoxItem::chPositioning()
                 if (i == characterItems[mixedItems[j]->index]->lineNum - 1)
                 {
                     characterItems[mixedItems[j]->index]->positionX = startX + chOffset;
-                    chOffset += characterItems[mixedItems[j]->index]->chWidth
+                    chOffset += characterItems[mixedItems[j]->index]->chPixelSize
                             + characterItems[mixedItems[j]->index]->chSpace;
                     if (2 == justificationPage)
                     {
                         characterItems[mixedItems[j]->index]->positionY = startY[i] - (lineHeight[i]
-                                                     - characterItems[mixedItems[j]->index]->chHeight);
+                                                     - characterItems[mixedItems[j]->index]->chPixelSize);
                     }
                     else if (3 == justificationPage)
                     {
                         characterItems[mixedItems[j]->index]->positionY = startY[i] - (lineHeight[i]
-                                                     - characterItems[mixedItems[j]->index]->chHeight) / 2;
+                                                     - characterItems[mixedItems[j]->index]->chPixelSize) / 2;
                     }
                     else if (4 == justificationPage)
                     {
