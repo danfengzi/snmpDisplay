@@ -12,7 +12,6 @@ TextBoxItem::TextBoxItem(QString multiString, QWidget *parent) : QLabel(parent)
 {
     multiStr = multiString;
     multiParsing();
-    timerInit();
 
     chPositioning();
 }
@@ -70,18 +69,9 @@ void TextBoxItem::paintEvent(QPaintEvent *event)
 
     for (int i = 0; i < characterItems.size(); ++i)
     {
-        painter.setPen(characterItems[i]->foregroundColor);
-        painter.setFont(characterItems[i]->chFont);
-        painter.setBrush(brush);
-        if (characterItems[i]->isVisiable)
-        {
-            brush.setColor(backgroundColor);
-            //painter.drawRect(characterItems[i]->positionX, characterItems[i]->positionY - characterItems[i]->chWidth,
-                             //characterItems[i]->chWidth, characterItems[i]->chHeight);
-            painter.drawText(characterItems[i]->positionX,
-                             characterItems[i]->positionY,
-                             QString(characterItems[i]->curCh));
-        }
+        characterItems[i]->setGeometry(characterItems[i]->positionX,
+                                       characterItems[i]->positionY - characterItems[i]->chHeight,
+                                       characterItems[i]->chWidth, characterItems[i]->chHeight);
     }
 
     for (int i = 0; i < movingTextItems.size(); ++i)
@@ -558,7 +548,7 @@ void TextBoxItem::multiParsing()
                 {
                     QString chMultiStr = chTempMultiStr;
                     chMultiStr.append(strList.at(i).at(j));
-                    CharacterItem *tempChItem = new CharacterItem(chMultiStr);
+                    CharacterItem *tempChItem = new CharacterItem(chMultiStr, this);
                     characterItems.append(tempChItem);
                     ItemPosition *tempItemPos = new ItemPosition("character", chCount);
                     chCount++;

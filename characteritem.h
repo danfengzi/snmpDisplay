@@ -2,9 +2,12 @@
 #define CHARACTERITEM_H
 
 #include <QTimer>
+#include <QPainter>
+#include <QPaintEvent>
 #include <QFont>
 #include <QColor>
 #include <QLabel>
+
 
 class CharacterItem : public QLabel
 {
@@ -36,8 +39,24 @@ public:
     QColor foregroundColor;  //前景颜色
     QColor backgroundColor;  //背景颜色
 
+    QTimer chOpenTimer;
+    QTimer chCloseTimer;
+    QTimer chOpenDelayTimer;
+    QTimer chCloseDelayTimer;
+
+protected:
+    void paintEvent(QPaintEvent *event);
+
+private slots:
+    void chOpenTimer_timeOut();
+    void chCloseTimer_timeOut();
+    void chOpenDelayTimer_timeOut();
+    void chCloseDelayTimer_timeOut();
+
 private:
     void multiParsing();
+
+    void timerInit();
 
     QString multiStr;
 };
