@@ -31,7 +31,6 @@ protected:
     void paintEvent(QPaintEvent *event);
 
 private:
-    void timerInit();         //定时器初始化
     void chPositioning();            //用于定位每个字在窗口中的位置
     void multiParsing();    //解析multi字符串
 
