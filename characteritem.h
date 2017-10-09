@@ -19,10 +19,6 @@ public:
 
     int flashLast;   //闪烁持续时间
     int flashClose;  //闪烁关闭时间
-    int chOpenId;    //文字显示定时器Id
-    int chCloseId;   //文字关闭定时器Id
-    int chOpenDelayId;  //文字打开延时定时器Id
-    int chCloseDelayId; //文字关闭延时定时器Id
     int positionX;   //文字横坐标
     int positionY;   //文字纵坐标
     int chHeight;    //文字高度

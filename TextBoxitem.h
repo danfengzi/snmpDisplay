@@ -4,7 +4,6 @@
 #include <QLabel>
 #include <QPainter>
 #include <QPaintEvent>
-#include <QTimerEvent>
 #include <QTimer>
 #include <QDebug>
 #include <QPixmap>
@@ -30,7 +29,6 @@ public:
 
 protected:
     void paintEvent(QPaintEvent *event);
-    void timerEvent(QTimerEvent *event);
 
 private:
     void timerInit();         //定时器初始化

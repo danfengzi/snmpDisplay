@@ -19,10 +19,6 @@ CharacterItem::CharacterItem(QString multiString, QWidget *parent) : QLabel(pare
     flashClose = 0;
     lineNum = 1;
     lineSpace = 0;
-    chOpenId = -1;
-    chCloseId = -1;
-    chOpenDelayId = -1;
-    chCloseDelayId = -1;
     chHeight = 40;
     chWidth = 40;
     chSpace = 0;
